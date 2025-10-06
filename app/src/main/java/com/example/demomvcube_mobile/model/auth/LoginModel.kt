@@ -1,6 +1,6 @@
 package com.example.demomvcube_mobile.model
 
-data class User(
+data class LoginModel(
     val id: Int,
     val name: String,
     val email: String,
