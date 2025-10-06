@@ -1,5 +1,5 @@
 // model/RegisterModel.kt
-package com.example.demomvcube_mobile.model
+package com.example.demomvcube_mobile.model.auth
 
 data class RegisterModel(
     val email: String,

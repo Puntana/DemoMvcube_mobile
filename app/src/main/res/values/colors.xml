@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="purple">#FF6200EE</color>
+    <dimen name="screen_padding_vertical">16dp</dimen>
+    <dimen name="screen_padding_horizontal">16dp</dimen>
 </resources>

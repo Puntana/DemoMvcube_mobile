@@ -1,5 +1,6 @@
-//package com.example.demomvcube_mobile.ui.auth.view
+package com.example.demomvcube_mobile.ui.auth.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.InputType
 import android.widget.*
@@ -8,9 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.example.demomvcube_mobile.R
 import com.example.demomvcube_mobile.ui.auth.viewmodel.LoginViewModel
-
+import com.example.demomvcube_mobile.ui.auth.view.RegisterActivity
 class LoginActivity : AppCompatActivity() {
-
     private val viewModel: LoginViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -19,37 +19,35 @@ class LoginActivity : AppCompatActivity() {
 
         val emailEditText = findViewById<EditText>(R.id.emailEditText)
         val passwordEditText = findViewById<EditText>(R.id.passwordEditText)
-        val showPasswordCheckBox = findViewById<CheckBox>(R.id.showPasswordCheckBox)
+        val togglePasswordButton = findViewById<ImageButton>(R.id.togglePasswordVisibility)
         val loginButton = findViewById<Button>(R.id.loginButton)
-//        val languageSpinner = findViewById<Spinner>(R.id.languageSpinner)
-
-//        // Language Selector
-//        val languages = listOf("English", "ไทย")
-//        val adapter = ArrayAdapter(this, android.R.layout.simple_spinner_dropdown_item, languages)
-//        languageSpinner.adapter = adapter
+        val signUpButton = findViewById<Button>(R.id.signUpButton)
 
         // Toggle show password
-        showPasswordCheckBox.setOnCheckedChangeListener { _, isChecked ->
-            passwordEditText.inputType =
-                if (isChecked) InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
-                else InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+        var isPasswordVisible = false
+        togglePasswordButton.setOnClickListener {
+            isPasswordVisible = !isPasswordVisible
+            if (isPasswordVisible) {
+                passwordEditText.inputType = InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD
+                togglePasswordButton.setImageResource(R.drawable.baseline_visibility_24)
+            } else {
+                passwordEditText.inputType = InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                togglePasswordButton.setImageResource(R.drawable.baseline_visibility_off_24)
+            }
+            passwordEditText.setSelection(passwordEditText.text.length)
         }
 
-        // Observe ViewModel
-        viewModel.loginResult.observe(this, Observer { success ->
-            if (success) Toast.makeText(this, "Login Successful", Toast.LENGTH_SHORT).show()
-            else Toast.makeText(this, "Login Failed", Toast.LENGTH_SHORT).show()
-        })
 
-        viewModel.errorMessage.observe(this, Observer { msg ->
-            Toast.makeText(this, msg, Toast.LENGTH_SHORT).show()
-        })
-
-        // Button click
         loginButton.setOnClickListener {
             val email = emailEditText.text.toString()
             val password = passwordEditText.text.toString()
             viewModel.login(email, password)
         }
+
+        signUpButton.setOnClickListener {
+            val intent = Intent(this, RegisterActivity::class.java)
+            startActivity(intent)
+        }
+
     }
 }

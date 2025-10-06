@@ -2,7 +2,7 @@
 package com.example.demomvcube_mobile.ui.auth.viewmodel
 
 import androidx.lifecycle.*
-import com.example.demomvcube_mobile.model.RegisterModel
+import com.example.demomvcube_mobile.model.auth.RegisterModel
 import com.example.demomvcube_mobile.ui.auth.repository.AuthRepository
 import kotlinx.coroutines.launch
 

@@ -1,4 +1,4 @@
-package com.example.demomvcube_mobile.model
+package com.example.demomvcube_mobile.model.auth
 
 data class LoginModel(
     val id: Int,

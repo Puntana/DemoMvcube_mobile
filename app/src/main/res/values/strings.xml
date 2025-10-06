@@ -1,3 +1,17 @@
 <resources>
     <string name="app_name">DemoMvcube_mobile</string>
+    <string name="app_logo">App Logo</string>
+    <string name="app_title">App Title</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="toggle_password">Toggle Password Visibility</string>
+    <string name="login">Login</string>
+    <string name="forgot_password">Forgot Password?</string>">
+    <string name="sign_up">Sign Up</string>
+    <string name="google">Google</string>
+    <string name="facebook">Facebook</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="terms_and_conditions">I accept the Terms &amp; Conditions</string>
+    <string name="back_to_login">Back to Login</string>
 </resources>
