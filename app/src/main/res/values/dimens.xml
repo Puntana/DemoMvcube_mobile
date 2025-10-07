@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Global padding values -->
+    <dimen name="screen_padding_horizontal">16dp</dimen>
+    <dimen name="screen_padding_vertical">16dp</dimen>
+
+    <!-- You can add more if needed -->
+    <dimen name="button_corner_radius">8dp</dimen>
+    <dimen name="text_margin">8dp</dimen>
+</resources>
